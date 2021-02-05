@@ -2,24 +2,6 @@
 name: 获取助力码
 
 on:
-    workflow_dispatch:
-    watch:
-        types: [started]
-    repository_dispatch:
-        types: jd_get_share_code
-
-jobs:
-    build:
-        runs-on: ubuntu-latest
-        if: github.event.repository.owner.id == github.event.sender.id
-        steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js 10.x# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: jd_Get_shareCode
-
-on:
   workflow_dispatch:
   schedule:
     - cron: '6 4,13 * * *'
