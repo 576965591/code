@@ -11,8 +11,7 @@ on:
     types: jd_Get_shareCode
 jobs:
   build:
-
- runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: Checkout
@@ -52,20 +51,4 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          JDNIAN_SHARECODES: ${{ secrets.JDNIAN_SHARECODES }}
-
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 10.x
-            - name: npm install
-              run: |
-                  npm install
-            - name: "运行 【获取助力码】"
-              run: |
-                  node onlyOneExecute.js
-              env:
-                  JD_COOKIE: ${{ github.event.client_payload.JD_COOKIE || secrets.JD_COOKIE }}
-                  JD_DEBUG: ${{ github.event.client_payload.JD_DEBUG || secrets.JD_DEBUG }}
-                  JD_USER_AGENT: ${{ github.event.client_payload.JD_USER_AGENT || secrets.JD_USER_AGENT }}
-                  PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
-                  SYNCURL: https://raw.githubusercontent.com/shuye72/MyActions/main/backup/jd_Get_shareCode.js
+          JDNIAN_SHARECODES: ${{ secrets.JDNIAN_SHARECODES }}          
